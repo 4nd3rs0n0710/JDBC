@@ -37,4 +37,10 @@ public class CAlumnos {
         this.apellidoAlumno = apellidoAlumno;
     }
     
+    public void setApellidosAlumnos(String apellidosAlumnos) {
+        this.apellidoAlumno = apellidosAlumnos;
+    }
+    public void InsertarAlumno(){
+    
+    }
 }
