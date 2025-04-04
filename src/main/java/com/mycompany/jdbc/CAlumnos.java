@@ -4,14 +4,17 @@
  */
 package com.mycompany.jdbc;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author SENA
  */
 public class CAlumnos {
+
     int codigo;
-    String nombreAlumno;
-    String apellidoAlumno;
+    String nombresAlumnos;
+    String apellidosAlumnos;
     
     public int getCodigo() {
         return codigo;
@@ -21,26 +24,33 @@ public class CAlumnos {
         this.codigo = codigo;
     }
 
-    public String getNombreAlumno() {
-        return nombreAlumno;
+    public String getNombresAlumnos() {
+        return nombresAlumnos;
     }
 
-    public void setNombreAlumno(String nombreAlumno) {
-        this.nombreAlumno = nombreAlumno;
+    public void setNombresAlumnos(String nombresAlumnos) {
+        this.nombresAlumnos = nombresAlumnos;
     }
 
-    public String getApellidoAlumno() {
-        return apellidoAlumno;
+    public String getApellidosAlumnos() {
+        return apellidosAlumnos;
     }
 
-    public void setApellidoAlumno(String apellidoAlumno) {
-        this.apellidoAlumno = apellidoAlumno;
-    }
-    
     public void setApellidosAlumnos(String apellidosAlumnos) {
-        this.apellidoAlumno = apellidosAlumnos;
+        this.apellidosAlumnos = apellidosAlumnos;
     }
-    public void InsertarAlumno(){
+    
+    public void InsertarAlumno(JTextField paramNombres, JTextField paramApellidos){
+    
+        setNombresAlumnos(paramNombres.getText());
+        setApellidosAlumnos(paramApellidos.getText());
+        
+        CConexion objetoConexion = new CConexion();
+        String consulta = "insert into Alumnos (nombres, apellidos) values ('Gio', 'Lopez');";
+    }
     
     }
-}
+
+    
+            
+
