@@ -130,8 +130,37 @@ public class CAlumnos {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error : " + e.toString());
             }
-        }
-    }
+        }    
+            public void ModificarAlumnos(JTextField paramCodigo, JTextField paramNombres, JTextField paramApellidos){
+                setCodigo(Integer.parseInt(paramCodigo.getText()));
+                setNombresAlumnos(paramNombres.getText());
+                setApellidosAlumnos(paramApellidos.getText());
+            
+                
+                CConexion objetoConexion = new CConexion();
+                
+                String consulta = "UPDATE Alumnos SET alumnos = ?, alumnos.apellidos =? WHERE alumnos.id=?;";
+                
+                try {
+                    
+                    CallableStatement cs = (CallableStatement) objetoConexion.establecerConexion().prepareCall(consulta);
+                    
+                    cs.setString(1, getNombresAlumnos());
+                    cs.setString(2, getApellidosAlumnos());
+                    cs.setInt(3, getCodigo());
+                    
+                    cs.execute();
+                    
+                    JOptionPane.showMessageDialog(null, "Modificación Exitosa");
+                    
+                    
+                } catch (Exception e) {
+                    
+                    JOptionPane.showMessageDialog(null, "Error al modificar Alumno, error :" + e.toString());
+                }
+            }
+        
+}
     
     
 
